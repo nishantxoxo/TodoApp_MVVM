@@ -2,12 +2,16 @@ package com.example.mytodoapp_mvvm.ui.add_edit_todo
 
 import android.icu.text.CaseMap.Title
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeContentPadding
 import androidx.compose.material.FloatingActionButton
 import androidx.compose.material.Icon
 import androidx.compose.material.Scaffold
+import androidx.compose.material.Text
 import androidx.compose.material.TextField
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Check
@@ -66,8 +70,16 @@ fun AddEditTodoScreen(
                 value = viewModel.title,
                 onValueChange = { it ->
                     viewModel.onEvent(AddEditTodoEvent.OnTitleChange(it))
-                }
+                },
+                placeholder = {
+                    Text(text = "title")
+                },
+                modifier = Modifier.fillMaxWidth()
             )
+
+            Spacer(modifier = Modifier.height(8.dp))
+
+
         }
     }
 
